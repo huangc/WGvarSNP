@@ -1,23 +1,13 @@
 #!/usr/bin/bash
 source 0SOURCE
-cd ${WORK_DIR}
 
-## Clean up the intermediate files
-\rm -r *.Reps.psr
-\rm -r *.Reps.psl.tailer*
+cd ${run_DIR}
+\rm -r *.fxmt.*
+\rm -r *.addrep.*
+\rm -r *.mkdup.*
+\rm -r *.sorted.*
+\rm -r *.intervals
+\rm -r *.metrics
 
-## clean up *.sample, *.fasta and *.fa files
-for indel in q t
-do
-cd ${WGvarINDEL_DIR}/${indel}
-mkdir -p ${WGvarINDEL_DIR}/${indel}/file_sample
-mv *.sample ${WGvarINDEL_DIR}/${indel}/file_sample
-
-mkdir -p ${WGvarINDEL_DIR}/${indel}/file_contig
-mv *.fa ${WGvarINDEL_DIR}/${indel}/file_contig
-
-mkdir -p ${WGvarINDEL_DIR}/${indel}/file_gap
-mv *_GAP_*.fasta ${WGvarINDEL_DIR}/${indel}/file_gap
-
-done
+mv *_env_*.vcf ${data_DIR}
 
