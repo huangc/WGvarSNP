@@ -23,11 +23,11 @@ module add samtools/0.1.19
 module add picard/1.52
 module add gatk/3.4-0
 
-cd ${WORK_DIR}
+cd ${run_DIR}
 
 #1. Align the paired reads to reference genome using bwa mem.
 bwa mem -M -t 8 \
-${REF_SEQ} ${i}_1.fq ${i}_2.fq > ${i}.sam
+${prereq_DIR}/${REF_SEQ} ${prereq_DIR}/${i}_1.fq ${prereq_DIR}/${i}_2.fq > ${i}.sam
 
 #2. Sort SAM file and output as BAM file
 java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/SortSam.jar \
