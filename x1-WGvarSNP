@@ -1,4 +1,4 @@
-
+#!/bin/bash
 PPN=16
 VMEM=40
 WALLTIME=40
