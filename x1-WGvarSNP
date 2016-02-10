@@ -2,7 +2,6 @@
 PPN=16
 VMEM=40
 WALLTIME=40
-EMAIL=youremail@indiana.edu
 JAVA_XMX=8g
 
 ##----------------
