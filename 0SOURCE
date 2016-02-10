@@ -1,0 +1,23 @@
+## General
+WORK_DIR_DIR=/your_home/your_workdir
+TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
+REF_DIR=${TRegGA_DIR}/reference/rice_japonica
+REFSEQ=OsjCHR.fa
+REFGFF=OsjCHR.gff3
+REFNAME=OsjCHR
+READ_DIR=${TRegGA_DIR}/reads
+SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
+
+## Sub-directory for workflow
+prereq_DIR=${WORK_DIR}/prereq
+doc_DIR=${WORK_DIR}/doc
+bin_DIR=${WORK_DIR}/bin
+src_DIR=${WORK_DIR}/src
+run_DIR=${WORK_DIR}/run
+data_DIR=${WORK_DIR}/data
+scratch_DIR=${WORK_DIR}/scratch
+
+## find out the path to picard-tools and gatk with "module show" on Mason
+PICARD_DIR=/N/soft/mason/picard-tools-1.52
+GATK_DIR=/N/soft/rhel6/gatk/3.4-0
+SAMTOOLS_DIR=/N/soft/mason/samtools/0.1.19
