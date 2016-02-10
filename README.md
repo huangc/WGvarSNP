@@ -27,6 +27,7 @@ do
 qsub gatk_${i}-on-${REF_SEQNAME}.qsub
 done
 ```
+5. cleanup with `sh xcleanup`
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
