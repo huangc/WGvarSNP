@@ -12,6 +12,7 @@ mkdir -p ${WORK_DIR}/scratch
 ```
 ### Preparation for the reference sequence
 ```
+cd ${prereq_DIR}
 ln -s ${REF_DIR}/${REFSEQ} .
 ```
 ### Index the reference genome for bwa
