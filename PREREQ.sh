@@ -28,7 +28,7 @@ echo "
 #!/bin/bash
 #PBS -m abe
 #PBS -l nodes=1:ppn=8,vmem=8gb,walltime=00:20:00
-#PBS -N prereq-on-${REF_SEQNAME}
+#PBS -N prereq-on-${REFSEQNAME}
 #PBS -j oe
 
 module add bwa/0.7.6a
@@ -39,11 +39,11 @@ module add gatk/3.4-0
 
 cd ${prereq_DIR}
 # Index the reference genome for bwa
-bwa index ${REF_SEQ}
+bwa index ${REFSEQ}
 
 # Index the reference genome for Picard and GATK
-${SAMTOOLS_DIR}/samtools faidx ${REF_SEQ}
-java -Xmx8g -jar ${PICARD_DIR}/CreateSequenceDictionary.jar REFERENCE=${REF_SEQ} OUTPUT=${REF_SEQNAME}.dict
-" > prereq-on-${REF_SEQNAME}.qsub
-qsub prereq-on-${REF_SEQNAME}.qsub
+${SAMTOOLS_DIR}/samtools faidx ${REFSEQ}
+java -Xmx8g -jar ${PICARD_DIR}/CreateSequenceDictionary.jar REFERENCE=${REFSEQ} OUTPUT=${REFSEQNAME}.dict
+" > prereq-on-${REFSEQNAME}.qsub
+qsub prereq-on-${REFSEQNAME}.qsub
 
