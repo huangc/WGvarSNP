@@ -24,7 +24,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 ```
 for i in ${SAMPLE}
 do
-qsub gatk_${i}-on-${REF_SEQNAME}.qsub
+qsub gatk_${i}-on-${REFSEQNAME}.qsub
 done
 ```
 5. cleanup with `sh xcleanup`
