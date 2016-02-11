@@ -46,3 +46,4 @@ ${SAMTOOLS_DIR}/samtools faidx ${REF_SEQ}
 java -Xmx8g -jar ${PICARD_DIR}/CreateSequenceDictionary.jar REFERENCE=${REF_SEQ} OUTPUT=${REF_SEQNAME}.dict
 " > prereq-on-${REF_SEQNAME}.qsub
 qsub prereq-on-${REF_SEQNAME}.qsub
+
