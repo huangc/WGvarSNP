@@ -12,7 +12,7 @@ echo "
 #PBS -m abe
 #PBS -l nodes=1:ppn=${PPN},vmem=${VMEM}gb,walltime=${WALLTIME}:00:00
 #PBS -M ${EMAIL}
-#PBS -N gatk_${i}-on-${REF_SEQNAME}
+#PBS -N gatk_${i}-on-${REFSEQNAME}
 #PBS -j oe
 
 module add bowtie2/2.2.3
@@ -27,7 +27,7 @@ cd ${run_DIR}
 
 #1. Align the paired reads to reference genome using bwa mem.
 bwa mem -M -t 8 \
-${prereq_DIR}/${REF_SEQ} ${prereq_DIR}/${i}_1.fq ${prereq_DIR}/${i}_2.fq > ${i}.sam
+${prereq_DIR}/${REFSEQ} ${prereq_DIR}/${i}_1.fq ${prereq_DIR}/${i}_2.fq > ${i}.sam
 
 #2. Sort SAM file and output as BAM file
 java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/SortSam.jar \
@@ -74,7 +74,7 @@ CREATE_INDEX=TRUE
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T RealignerTargetCreator \
 -I ${i}.addrep.bam \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 -o ${i}.intervals \
 -fixMisencodedQuals \
 -nt 8
@@ -83,7 +83,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T IndelRealigner \
 -I ${i}.addrep.bam \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 -targetIntervals ${i}.intervals \
 -fixMisencodedQuals \
 -o ${i}.realn.bam
@@ -95,7 +95,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 #9. Call variants using Unified Genotyper
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T UnifiedGenotyper \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 -I ${i}.realn.bam \
 -o ${i}.vcf \
 -glm BOTH \
@@ -110,7 +110,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 #10. Select Variants by SNPS and Indels using SelectVariants
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 --variant ${i}.vcf \
 --excludeFiltered \
 --excludeNonVariants \
@@ -118,20 +118,20 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 --selectTypeToInclude SNP \
 --variant ${i}_env.vcf \
 -o ${i}_env_snp.vcf
 
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REF_SEQ} \
+-R ${REFSEQ} \
 --selectTypeToInclude INDEL \
 --minIndelSize 5 \
 --variant ${i}_env.vcf \
 -o ${i}_env_indel.vcf
 
-" > gatk_${i}-on-${REF_SEQNAME}.qsub
+" > gatk_${i}-on-${REFSEQNAME}.qsub
 
 done
 
