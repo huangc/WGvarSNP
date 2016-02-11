@@ -1,6 +1,6 @@
 ## General
 EMAIL=youremail@indiana.edu
-WORK_DIR_DIR=/your_home/your_workdir
+WORK_DIR=/your_home/your_workdir
 TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
 REF_DIR=${TRegGA_DIR}/reference/rice_japonica
 REFSEQ=OsjCHR.fa
