@@ -1,4 +1,4 @@
-# Finding whole genome (WG) SNPs and INDELs with NGS reads
+# Finding whole genome SNPs and short INDELs with NGS reads
 Contributed by Chun-Yuan Huang, 2/10/2016
 
 ## Aims:
