@@ -1,6 +1,6 @@
 source ./0SOURCE
-
 cd ${run_DIR}
+
 for i in ${SAMPLE}
 do
 qsub gatk_${i}-on-${REFSEQNAME}.qsub
