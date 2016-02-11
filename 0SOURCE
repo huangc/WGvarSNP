@@ -5,7 +5,7 @@ TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
 REF_DIR=${TRegGA_DIR}/reference/rice_japonica
 REFSEQ=OsjCHR.fa
 REFGFF=OsjCHR.gff3
-REFNAME=OsjCHR
+REF_SEQNAME=OsjCHR
 READ_DIR=${TRegGA_DIR}/reads
 SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
 
