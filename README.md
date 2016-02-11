@@ -20,14 +20,9 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
-4. Submit jobs on Mason
-```
-for i in ${SAMPLE}
-do
-qsub gatk_${i}-on-${REFSEQNAME}.qsub
-done
-```
+4. Submit jobs on Mason: `sh x2-qsub`
 5. cleanup with `sh xcleanup`
+6. Find main outputs in the sub-directory /data under your working directory.
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
