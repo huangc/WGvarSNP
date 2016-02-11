@@ -1,5 +1,5 @@
 #!/bin/bash
-source 0SOURCE
+source ./0SOURCE
 
 # Setup sub-directory for workflow
 cd ${WORK_DIR}
@@ -16,7 +16,7 @@ cd ${prereq_DIR}
 ln -s ${REF_DIR}/${REFSEQ} .
 
 # Preparation for the sample reads with TRegGA
-Note that reads have been trimmed and quality filtered with TRegGA previously, and are just linked here.
+# Note that reads have been trimmed and quality filtered with TRegGA previously, and are just linked here.
 for i in ${SAMPLE}
 do
 ln -s ${READ_DIR}/${i}/${i}_1.fq .
@@ -27,7 +27,7 @@ done
 echo "
 #!/bin/bash
 #PBS -m abe
-#PBS -l nodes=1:ppn=8,vmem=8gb,walltime=00:20:00
+#PBS -l nodes=1:ppn=8,vmem=20gb,walltime=00:20:00
 #PBS -N prereq-on-${REFSEQNAME}
 #PBS -j oe
 
@@ -35,7 +35,6 @@ module add bwa/0.7.6a
 module add java
 module add samtools/0.1.19
 module add picard/1.52
-module add gatk/3.4-0
 
 cd ${prereq_DIR}
 # Index the reference genome for bwa
