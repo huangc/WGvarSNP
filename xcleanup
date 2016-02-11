@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-source 0SOURCE
+source ./0SOURCE
 
 cd ${run_DIR}
 \rm -r *.fxmt.*
