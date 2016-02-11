@@ -1,4 +1,7 @@
 #!/bin/bash
+source ./0SOURCE
+cd ${run_DIR}
+
 PPN=16
 VMEM=40
 WALLTIME=40
