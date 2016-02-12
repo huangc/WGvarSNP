@@ -23,7 +23,7 @@ done
 echo "
 #!/bin/bash
 #PBS -m abe
-#PBS -l nodes=1:ppn=8,vmem=20gb,walltime=00:20:00
+#PBS -l nodes=1:ppn=8,vmem=20gb,walltime=01:00:00
 #PBS -N prereq-on-${REFSEQNAME}
 #PBS -j oe
 
