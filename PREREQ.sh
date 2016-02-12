@@ -4,8 +4,8 @@ source ./0SOURCE
 # Setup sub-directory for workflow
 cd ${WORK_DIR}
 mkdir -p ${WORK_DIR}/prereq
-# mkdir -p ${WORK_DIR}/doc
-# mkdir -p ${WORK_DIR}/bin
+mkdir -p ${WORK_DIR}/doc
+mkdir -p ${WORK_DIR}/bin
 # mkdir -p ${WORK_DIR}/src
 mkdir -p ${WORK_DIR}/run
 mkdir -p ${WORK_DIR}/data
