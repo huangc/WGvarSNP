@@ -1,11 +1,10 @@
 ## General
 EMAIL=youremail@indiana.edu
 WORK_DIR=/your_home/your_workdir
-TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
-REF_DIR=${TRegGA_DIR}/reference/rice_japonica
 REFSEQ=OsjCHR.fa
 REFGFF=OsjCHR.gff3
 REFSEQNAME=OsjCHR
+TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
 READ_DIR=${TRegGA_DIR}/reads
 # SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
 SAMPLE="ZHENGSHAN97test"
