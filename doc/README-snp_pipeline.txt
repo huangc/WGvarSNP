@@ -1,6 +1,7 @@
 
 SNP Pipeline Commands
- 
+(source: http://s3.amazonaws.com/3kricegenome/README-snp_pipeline.txt)
+
 1. Index the reference genome using bwa index
  
    /software/bwa-0.7.10/bwa index /reference/japonica/reference.fa
