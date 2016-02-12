@@ -19,7 +19,7 @@ ln -s ${READ_DIR}/${i}/${i}_1.fq .
 ln -s ${READ_DIR}/${i}/${i}_2.fq .
 done
 
-# Index the reference genome
+# Retrieve and index the reference genome
 echo "
 #!/bin/bash
 #PBS -m abe
