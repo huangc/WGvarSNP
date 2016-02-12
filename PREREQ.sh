@@ -13,6 +13,7 @@ mkdir -p ${WORK_DIR}/scratch
 
 # Preparation for the sample reads with TRegGA
 # Note that reads have been trimmed and quality filtered with TRegGA previously, and are just linked here.
+cd ${prereq_DIR}
 for i in ${SAMPLE}
 do
 ln -s ${READ_DIR}/${i}/${i}_1.fq .
