@@ -71,4 +71,4 @@ sed -e "s/^\([1-9]\)/OsjChr\1/" Oryza_sativa.IRGSP-1.0.26.gff3   | egrep "^##|^O
 
 #9. Verify the files have been downloaded and processed correctly.
 #
-shasum -c checksums.sha
+# shasum -c checksums.sha
