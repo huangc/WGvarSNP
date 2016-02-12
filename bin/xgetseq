@@ -11,8 +11,6 @@ which blastdbcmd
 wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/fasta/oryza_sativa/dna/Oryza_sativa.IRGSP-1.0.26.dna.genome.fa.gz
 wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/embl/oryza_sativa/Oryza_sativa.IRGSP-1.0.26.dat.gz
 wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/gff3/oryza_sativa/Oryza_sativa.IRGSP-1.0.26.gff3.gz
-wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/fasta/oryza_sativa/cdna/Oryza_sativa.IRGSP-1.0.26.cdna.all.fa.gz
-wget ftp://ftp.ensemblgenomes.org/pub/plants/release-26/fasta/oryza_sativa/pep/Oryza_sativa.IRGSP-1.0.26.pep.all.fa.gz
 
 gunzip -f *.gz
 mv Oryza_sativa.IRGSP-1.0.26.dat Oryza_sativa.IRGSP-1.0.26.embl
