@@ -77,7 +77,7 @@ CREATE_INDEX=TRUE
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T RealignerTargetCreator \
 -I ${i}.addrep.bam \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 -o ${i}.intervals \
 -fixMisencodedQuals \
 -nt 8
@@ -86,7 +86,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T IndelRealigner \
 -I ${i}.addrep.bam \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 -targetIntervals ${i}.intervals \
 -fixMisencodedQuals \
 -o ${i}.realn.bam
@@ -98,7 +98,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 #9. Call variants using Unified Genotyper
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T UnifiedGenotyper \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 -I ${i}.realn.bam \
 -o ${i}.vcf \
 -glm BOTH \
@@ -113,7 +113,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 #10. Select Variants by SNPS and Indels using SelectVariants
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 --variant ${i}.vcf \
 --excludeFiltered \
 --excludeNonVariants \
@@ -121,14 +121,14 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 --selectTypeToInclude SNP \
 --variant ${i}_env.vcf \
 -o ${i}_env_snp.vcf
 
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -T SelectVariants \
--R ${REFSEQ} \
+-R ${prereq_DIR}/${REFSEQ} \
 --selectTypeToInclude INDEL \
 --minIndelSize 5 \
 --variant ${i}_env.vcf \
