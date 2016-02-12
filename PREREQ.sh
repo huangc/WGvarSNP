@@ -13,7 +13,8 @@ mkdir -p ${WORK_DIR}/scratch
 
 # Preparation for the reference sequence
 cd ${prereq_DIR}
-ln -s ${REF_DIR}/${REFSEQ} .
+# ln -s ${REF_DIR}/${REFSEQ} .
+sh ${bin_DIR}/xgetseq
 
 # Preparation for the sample reads with TRegGA
 # Note that reads have been trimmed and quality filtered with TRegGA previously, and are just linked here.
