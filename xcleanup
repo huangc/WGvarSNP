@@ -3,10 +3,9 @@ source ./0SOURCE
 
 cd ${run_DIR}
 mv *_env_*.vcf ${data_DIR}
-
-mv *.fxmt.* ${scratch}
-mv *.addrep.* ${scratch}
-mv *.mkdup.* ${scratch}
-mv *.sorted.* ${scratch}
-mv *.intervals ${scratch}
-mv *.metrics ${scratch}
+mv *.fxmt.* ${scratch_DIR}
+mv *.addrep.* ${scratch_DIR}
+mv *.mkdup.* ${scratch_DIR}
+mv *.sorted.* ${scratch_DIR}
+mv *.intervals ${scratch_DIR}
+mv *.metrics ${scratch_DIR}
