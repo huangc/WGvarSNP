@@ -1,7 +1,8 @@
 ## General
 EMAIL=youremail@indiana.edu
 WORK_DIR=/your_home/your_workdir
-REFSEQ=OsjCHR.fa
+# REFSEQ=OsjCHR.fa
+REFSEQ=OsjChr10.fa
 REFGFF=OsjCHR.gff3
 REFSEQNAME=OsjCHR
 TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
