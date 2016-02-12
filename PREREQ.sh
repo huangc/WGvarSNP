@@ -33,7 +33,7 @@ module add samtools/0.1.19
 module add picard/1.52
 
 cd ${prereq_DIR}
-# Preparation for the reference sequence
+# Retrieve the reference sequence
 sh ${bin_DIR}/xgetseq
 
 # Index the reference genome for bwa
