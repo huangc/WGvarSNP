@@ -11,11 +11,6 @@ mkdir -p ${WORK_DIR}/data
 mkdir -p ${WORK_DIR}/run
 mkdir -p ${WORK_DIR}/scratch
 
-# Preparation for the reference sequence
-cd ${prereq_DIR}
-# ln -s ${REF_DIR}/${REFSEQ} .
-sh ${bin_DIR}/xgetseq
-
 # Preparation for the sample reads with TRegGA
 # Note that reads have been trimmed and quality filtered with TRegGA previously, and are just linked here.
 for i in ${SAMPLE}
@@ -38,6 +33,9 @@ module add samtools/0.1.19
 module add picard/1.52
 
 cd ${prereq_DIR}
+# Preparation for the reference sequence
+sh ${bin_DIR}/xgetseq
+
 # Index the reference genome for bwa
 bwa index ${REFSEQ}
 
