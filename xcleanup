@@ -2,12 +2,13 @@
 source ./0SOURCE
 
 cd ${run_DIR}
-\rm -r *.fxmt.*
-\rm -r *.addrep.*
-\rm -r *.mkdup.*
-\rm -r *.sorted.*
-\rm -r *.intervals
-\rm -r *.metrics
-
 mv *_env_*.vcf ${data_DIR}
+
+# \rm -r *.fxmt.*
+# \rm -r *.addrep.*
+# \rm -r *.mkdup.*
+# \rm -r *.sorted.*
+# \rm -r *.intervals
+# \rm -r *.metrics
+
 
