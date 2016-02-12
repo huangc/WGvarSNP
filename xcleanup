@@ -2,7 +2,8 @@
 source ./0SOURCE
 
 cd ${run_DIR}
-mv *_env_*.vcf ${data_DIR}
+mv *_env*.vcf* ${data_DIR}
+
 mv *.fxmt.* ${scratch_DIR}
 mv *.addrep.* ${scratch_DIR}
 mv *.mkdup.* ${scratch_DIR}
