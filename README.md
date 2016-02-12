@@ -19,13 +19,13 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 ## Execution description:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
-   Note: PREREQ.sh will submit a job to index ref genome. Make sure the job is done before proceeding to the next step.
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
 4. Submit jobs on Mason: `sh x2-qsub`. 
 5. cleanup with `sh xcleanup`
 6. Find main outputs in the sub-directory /data under your working directory.
 
-Note: If an error message of "Bad input: mis-encoded base qualities" is encountered, you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script. Turning on this option universally, however, would run the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
+Note1: PREREQ.sh will submit a job to index ref genome. Make sure the job is done before proceeding to the next step.
+Note2: If an error message of "Bad input: mis-encoded base qualities" is encountered, you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script. Turning on this option universally, however, would run the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
