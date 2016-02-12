@@ -21,7 +21,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
 4. Submit jobs on Mason: `sh x2-qsub`. 
-5. cleanup with `sh xcleanup`
+5. cleanup files with `sh xcleanup`
 6. Find main outputs in the sub-directory /data under your working directory.
 
 Note1: PREREQ.sh submits a job to index ref genome. Make sure the job is done before proceeding to the next step.
