@@ -1,6 +1,19 @@
 #!/bin/bash
 source ./0SOURCE
 
+## Prerequisite data:
+# Run TRegGA workflow to obtain the trimmed and quality filtered NGS reads of rice samples.
+# Retrieve the reference rice Japonica sequence and gff3 files.
+
+## Prerequisite software:
+# xgetseq from TRegGA for retrieving the reference sequence, with modification to retrieve also individual chrs.
+# module bwa/0.7.6a
+# module samtools/0.1.19
+# module picard/1.52
+# module gatk/3.4-0
+
+##--------------------------------------------
+
 # Setup sub-directory for workflow
 cd ${WORK_DIR}
 mkdir -p ${WORK_DIR}/prereq
