@@ -7,10 +7,10 @@ source ./0SOURCE
 
 ## Prerequisite software:
 # xgetseq from TRegGA for retrieving the reference sequence, with modification to retrieve also individual chrs.
-# module bwa/0.7.6a
-# module samtools/0.1.19
-# module picard/1.52
-# module gatk/3.4-0
+# bwa/0.7.6a
+# samtools/0.1.19
+# picard/1.52
+# gatk/3.4-0
 
 ##--------------------------------------------
 
