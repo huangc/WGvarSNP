@@ -1,3 +1,1 @@
-"data" directory
-
-This directory contains main results moved from the "run" directory
+"data" directory: contains main results moved from the "run" directory
