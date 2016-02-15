@@ -80,7 +80,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -R ${prereq_DIR}/${REFSEQ} \
 -o ${i}.intervals \
 -nt 8
-# Note: turn on option "-fixMisencodedQuals" when encounter error message of "Bad input: mis-encoded base qualities".
+# Note: turn on option "-fixMisencodedQuals" when encounter error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores".
 
 #7. Indel Realigner
 java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
@@ -89,7 +89,7 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -R ${prereq_DIR}/${REFSEQ} \
 -targetIntervals ${i}.intervals \
 -o ${i}.realn.bam
-# Note: turn on option "-fixMisencodedQuals" when encounter error message of "Bad input: mis-encoded base qualities".
+# Note: turn on option "-fixMisencodedQuals" when encounter error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores".
 
 #8. Merge individual BAM files if there are multiple read pairs per sample
 # ${SAMTOOLS_DIR}/samtools merge ${i}.merged.bam ${i}.*.realn.bam
