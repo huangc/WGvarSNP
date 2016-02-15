@@ -5,16 +5,11 @@ Contributed by Chun-Yuan Huang, 2/12/2016
 This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic samples as compared to reference genome using NGS reads. It takes NGS reads (trimmed and quality filtered with TRegGA) and reference genome sequence as inputs, then generates VCF (Variant Call Format) files for SNPs and INDELs of the sample. The original workflow is described in the 3,000 rice genome project (3kRGP) [1] and the SNP-Seek paper [2] in order to discover allelic variants of 3kRGP. The original step-by-step workflow, published online in [3,4], is modified here to accomodate to IU large memory computer cluster Mason. The results can be a valuable extension to our TRegGA workflow for targeted rice variants studies.
 
 ## Workflow description [1]:
-1. The clean reads were mapped to the temperate japonica Nipponbare reference genome IRGSP-1.0 using the BWA software.
-2. The alignment results were then merged and indexed as BAM files. 
-3. SNP calling was based on alignment using the Genome Analysis Toolkit 2.0-35 (GATK) and Picard package V1.71. 
-4. To minimize the number of mismatched bases for SNP and InDel calling, all reads from each accession were further cleaned by: 
-  1. deleting the reads that are unmapped to the reference in the alignment result; 
-  2. deleting duplicate reads; 
-  3. conducting alignment by the IndelRealigner package in GATK; and 
-  4. recalibrating realignments using the BaseRecalibrator package in GATK. 
-5. SNP and InDel calling for each sample were performed independently using the UnifiedGenotyper package in GATK with a minimum phred-scaled confidence threshold of 50, and a minimum phred-scaled confidence threshold for emitting variants at 10. 
-6. To ensure the quality of variant calling, the conditions for every site in a genome were set at >20 for mapping quality, >50 for variant quality and >2 for the number of supporting reads for every base. 
+1. The TRegGA-cleaned reads were mapped to the temperate japonica Nipponbare reference genome IRGSP-1.0 using the BWA software.
+2. All reads are further cleaned by the following to minimize the number of mismatched bases for variant calling: 
+  1. remove unmapped and duplicate reads in the bwa alignment result
+  2. realign the raw gapped alignment to reduce the number of miscalls of INDELs.
+3. Variant (SNP and InDel) calling is based on alignment using the Genome Analysis Toolkit (GATK). SNP and InDel calling for each sample were performed using the UnifiedGenotyper package in GATK with phred-scaled minimum confidence threshold for calling variant at 50, minimum confidence threshold for emitting variants at 10, minimam base quality at 20, and minimum supporting read counts at 2.
 
 ## Synopsis:
 ### A typical WGvarSNP workflow involves the following.
@@ -25,12 +20,12 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 5. Cleanup files with `sh xcleanup`
 6. Find main outputs in ${WORK_DIR}/data.
 
-### Data retrieval and workflow execution is implemented and documented in aptly named sub-directories.
-prereq/: retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
-doc/: reference and tutorial documents.
-bin/: ancillary codes and scripts.
-run/: main scripts and execution results.
-data/: final outputs and reports.
+### Data retrieval and workflow execution is implemented in aptly named sub-directories.
+1. prereq/: retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
+2. doc/: reference and tutorial documents.
+3. bin/: ancillary codes and scripts.
+4. run/: main scripts and execution results.
+5. data/: final outputs and reports.
 
 ## Notes: 
 1. The workflow default to run a test case using 10% reads from rice cultivar Zhengshan97 against reference rice Japponica Chr10. 
