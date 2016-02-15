@@ -12,7 +12,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 3. Variant (SNP and InDel) calling is based on alignment using the Genome Analysis Toolkit (GATK). SNP and InDel calling for each sample were performed using the UnifiedGenotyper package in GATK with phred-scaled minimum confidence threshold for calling variant at 50, minimum confidence threshold for emitting variants at 10, minimam base quality at 20, and minimum supporting read counts at 2.
 
 ## Synopsis:
-### A typical WGvarSNP workflow involves the following.
+### A typical WGvarSNP workflow involves the following:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
