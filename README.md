@@ -15,8 +15,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
   3. minimam base quality at 20,
   4. minimum supporting read counts at 2.
 
-## Synopsis:
-### A typical WGvarSNP workflow involves the following:
+## Workflow execution:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
@@ -24,7 +23,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 5. Cleanup files with `sh xcleanup`
 6. Find main outputs in ${WORK_DIR}/data.
 
-### Data retrieval and workflow execution is implemented in aptly named sub-directories.
+## Data retrieval and workflow execution is implemented in the aptly named sub-directories.
 1. prereq/: retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
 2. doc/: reference and tutorial documents.
 3. bin/: ancillary codes and scripts.
