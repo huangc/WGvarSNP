@@ -1,1 +1,1 @@
-data/ directory: contains final results moved from run/ directory, and reports
+*data/* directory: contains final results moved from run/ directory, and reports
