@@ -16,7 +16,8 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 5. SNP and InDel calling for each sample were performed independently using the UnifiedGenotyper package in GATK with a minimum phred-scaled confidence threshold of 50, and a minimum phred-scaled confidence threshold for emitting variants at 10. 
 6. To ensure the quality of variant calling, the conditions for every site in a genome were set at >20 for mapping quality, >50 for variant quality and >2 for the number of supporting reads for every base. 
 
-## Execution description:
+## Synopsis:
+### A typical WGvarSNP workflow involves the following.
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
@@ -24,10 +25,17 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 5. Cleanup files with `sh xcleanup`
 6. Find main outputs in ${WORK_DIR}/data.
 
+### Data retrieval and workflow execution is implemented and documented in aptly named sub-directories.
+prereq/: retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
+doc/: reference and tutorial documents.
+bin/: ancillary codes and scripts.
+run/: main scripts and execution results.
+data/: final outputs and reports.
+
 ## Notes: 
 1. The workflow default to run a test case using 10% reads from rice cultivar Zhengshan97 against reference rice Japponica Chr10. 
 2. PREREQ.sh submits a job to retrieve and index the reference genome. Make sure the job is done before proceeding to the next step.
-3. If x2-qsub encounter an error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores", you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script located in ${WORK_DIR}/run. Turning on this option universally, however, would run the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
+3. If x2-qsub encounter an error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores", you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script located in run/. Turning on this option universally, however, might incur the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
