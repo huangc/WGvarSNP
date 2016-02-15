@@ -21,7 +21,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
 4. Submit jobs on Mason: `sh x2-qsub`. 
 5. Cleanup files with `sh xcleanup`
-6. Find main outputs in ${WORK_DIR}/data.
+6. Find main outputs in data/.
 
 ## Sub-directories for workflow execution and data retrieval.
 1. prereq/: retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
