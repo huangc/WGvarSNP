@@ -12,6 +12,12 @@ READ_DIR=${TRegGA_DIR}/reads
 # SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
 SAMPLE="ZHENGSHAN97test"
 
+## qsub parameters for job running on Mason 
+PPN=16
+VMEM=40
+WALLTIME=40
+JAVA_XMX=8g
+
 ## Sub-directory for workflow
 prereq_DIR=${WORK_DIR}/prereq
 doc_DIR=${WORK_DIR}/doc
