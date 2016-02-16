@@ -7,13 +7,13 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 ## Workflow description [1]:
 1. The TRegGA-cleaned reads are mapped to the temperate japonica Nipponbare reference genome IRGSP-1.0 using the BWA software.
 2. All reads are further cleaned by the following to minimize the number of mismatched bases for variant calling: 
-  1. remove unmapped and duplicate reads in the bwa alignment result
-  2. realign the raw gapped alignment to reduce the number of miscalls of INDELs.
+  * remove unmapped and duplicate reads in the bwa alignment result
+  * realign the raw gapped alignment to reduce the number of miscalls of INDELs.
 3. Variant (SNP and InDel) calling is based on alignment using the UnifiedGenotyper package of Genome Analysis Toolkit (GATK), with the following constrains (phred-scaled scores):
-  1. minimum confidence threshold for calling variant at 50, 
-  2. minimum confidence threshold for emitting variants at 10, 
-  3. minimam base quality at 20,
-  4. minimum supporting read counts at 2.
+  * minimum confidence threshold for calling variant at 50, 
+  * minimum confidence threshold for emitting variants at 10, 
+  * minimam base quality at 20,
+  * minimum supporting read counts at 2.
 
 ## Workflow execution:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
