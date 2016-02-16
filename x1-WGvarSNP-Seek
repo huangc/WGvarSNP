@@ -2,6 +2,11 @@
 source ./0SOURCE
 cd ${run_DIR}
 
+PPN=${PPN}
+VMEM=${VMEM}
+WALLTIME=${WALLTIME}
+JAVA_XMX=${JAVA_XMX}
+
 ##----------------
 for i in ${SAMPLE} 
 do
