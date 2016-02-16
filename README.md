@@ -18,7 +18,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 ## Workflow execution:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
-3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
+3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP` or `sh x1-WGvarSNP-Seek`
 4. Submit jobs on Mason: `sh x2-qsub`. 
 5. Cleanup files with `sh xcleanup`
 6. Find final outputs in *data/*.
