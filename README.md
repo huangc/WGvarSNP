@@ -34,7 +34,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 1. The workflow default to run a test case using 10% reads from rice cultivar Zhengshan97 against reference rice Japponica Chr10. 
 2. PREREQ.sh submits a job to retrieve and index the reference genome. Make sure the job is done before proceeding to the next step.
 3. If x2-qsub encounter an error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores", you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script located in run/. Turning on this option universally, however, might incur the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
-4. WGvarSNP implements the variant calling options according to the 3kRGP[1]. The SNP-Seek's pipeline [2,4], although followed 3kRGP instruction, did not include the constrains on minimum confidence threshold for calling and emitting variant, or on minimum supporting read counts. Adjust those options in *x1-WGvarSNP* accordingly to be compatible with the SNP-Seek database.
+4. WGvarSNP implements the variant calling options according to the 3kRGP [1]. The SNP-Seek's pipeline [2,4], although followed 3kRGP instruction, did not include the constrains on minimum confidence threshold for calling and emitting variant, or on minimum supporting read counts. Adjust those options in *x1-WGvarSNP* accordingly to be compatible with the SNP-Seek database.
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
