@@ -14,9 +14,13 @@ REFGFF=OsjCHR.gff3
 # SAMPLE is a list of sample names. Each sample name should be only one word.
 # SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
 SAMPLE="ZHENGSHAN97test"
-# READ_DIR is the directory that stores the sample reads. In order for the workflow to parse the reads correctly,
-# the pair-end Reads files should be in the naming convention of <SAMPLE>_1.fq, <SAMPLE>_2.fq.
+# READ_DIR is the directory that stores the sample reads.
 READ_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1/reads
+# In order for the workflow to parse the reads correctly, 
+# the pair-end reads files should be in the naming convention of <SAMPLE>_1.fq, <SAMPLE>_2.fq.
+READSEQ="${prereq_DIR}/<SAMPLE>_1.fq ${prereq_DIR}/<SAMPLE>_1.fq"
+# and the single-end reads should be in the naming convention of <SAMPLE>.fq
+# READSEQ="${prereq_DIR}/<SAMPLE>.fq"
 
 ## qsub parameters for job running on Mason 
 PPN=16
