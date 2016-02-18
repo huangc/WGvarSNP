@@ -38,6 +38,12 @@ make prefix=${bin_DIR} install
 
 ### Picard
 See https://github.com/broadinstitute/picard for the source code and installation instruction.
+See http://broadinstitute.github.io/picard forthe pre-compiled picard download instruction.
+tar -xvf broadinstitute-picard-2.1.0-10-gd3961da.tar
+
 
 ### GATK
-see https://github.com/broadinstitute/gatk for the source code and installation instruction.
+See https://github.com/broadinstitute/gatk for the source code and installation instruction.
+See https://www.broadinstitute.org/gatk/download/index for the pre-compiled GATK download instruction
+tar -jxf GenomeAnalysisTK-3.5.tar.bz2
+cp GenomeAnalysisTK.jar ${bin_DIR}
