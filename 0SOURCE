@@ -1,16 +1,21 @@
 ## General
 EMAIL=youremail@indiana.edu
 WORK_DIR=/your_home/your_workdir
-TRegGA_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1
-# REF_DIR=${TRegGA_DIR}/reference/rice_japonica
+
+# REFSEQ is the fasta file for reference genome, retrieved by bin/xgetseq, and located in /prereq. 
 # REFSEQ=OsjCHR.fa
 REFSEQ=OsjChr10.fa
-REFGFF=OsjCHR.gff3
+# REFSEQNAME is the file name for REFSEQ without file extension.
 # REFSEQNAME=OsjCHR
 REFSEQNAME=OsjChr10
-READ_DIR=${TRegGA_DIR}/reads
+# REFGFF is the gene annotation gff3 file for REFSEQ, retrieved by bin/xgetseq, and located in /prereq.
+REFGFF=OsjCHR.gff3
+
+# SAMPLE is a list of sample names. Each sample name should be only one word.
 # SAMPLE="NIPPONBARE YUEGUANG SHANJIUGU ZHENGSHAN97"
 SAMPLE="ZHENGSHAN97test"
+# READ_DIR is the directory that stores the sample reads. In order for the workflow to parse the reads correctly, the pair-end Reads files should be in the naming convention of <SAMPLE>_1.fq, <SAMPLE>_2.fq.
+READ_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1/reads
 
 ## qsub parameters for job running on Mason 
 PPN=16
