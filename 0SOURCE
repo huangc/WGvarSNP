@@ -17,10 +17,9 @@ SAMPLE="ZHENGSHAN97test"
 # READ_DIR is the directory that stores the sample reads.
 READ_DIR=/N/dc2/projects/brendelgroup/TRegGA/TRegGA_v1/reads
 # In order for the workflow to parse the reads correctly, 
-# the pair-end reads files should be in the naming convention of <SAMPLE>_1.fq, <SAMPLE>_2.fq.
-READSEQ="${prereq_DIR}/<SAMPLE>_1.fq ${prereq_DIR}/<SAMPLE>_1.fq"
-# and the single-end reads should be in the naming convention of <SAMPLE>.fq
-# READSEQ="${prereq_DIR}/<SAMPLE>.fq"
+# the pair-end reads files should be stored and named as ${READ_DIR}/${SAMPLE}/${SAMPLE}_1.fq and ${SAMPLE}_2.fq.
+# and the single-end reads files should be stored and named as ${READ_DIR}/${SAMPLE}/${SAMPLE}.fq
+# In addition, adjust both PREREQ.sh and x1-WGvarSNP step#1 bwa setting to reflect the single-end reads.
 
 ## qsub parameters for job running on Mason 
 PPN=16
