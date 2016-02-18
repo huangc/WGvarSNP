@@ -36,4 +36,8 @@ make prefix=${bin_DIR}
 make prefix=${bin_DIR} install
 ```
 
+### Picard
+See https://github.com/broadinstitute/picard for the source code and installation instruction.
 
+### gatk
+see https://github.com/broadinstitute/gatk for the source code and installation instruction.
