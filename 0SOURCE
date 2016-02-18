@@ -2,13 +2,13 @@
 EMAIL=youremail@indiana.edu
 WORK_DIR=/your_home/your_workdir
 
-# REFSEQ is the fasta file for reference genome, retrieved by bin/xgetseq, and located in /prereq. 
+# REFSEQ is the fasta file for reference genome, retrieved by bin/xgetseq, and located in prereq/. 
 # REFSEQ=OsjCHR.fa
 REFSEQ=OsjChr10.fa
 # REFSEQNAME is the file name for REFSEQ without file extension.
 # REFSEQNAME=OsjCHR
 REFSEQNAME=OsjChr10
-# REFGFF is the gene annotation gff3 file for REFSEQ, retrieved by bin/xgetseq, and located in /prereq.
+# REFGFF is the gene annotation gff3 file for REFSEQ, retrieved by bin/xgetseq, and located in prereq/.
 REFGFF=OsjCHR.gff3
 
 # SAMPLE is a list of sample names. Each sample name should be only one word.
