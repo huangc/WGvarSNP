@@ -27,6 +27,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 1. *prereq/*: prerequisite inputs such as retrieval and storage of TRegGA processed reads; retrieval and storage of reference genomes, preparation of BLAST+ database for reference genome.
 2. *doc/*: reference and tutorial documents.
 3. *bin/*: ancillary codes and scripts.
+4. *src/*: prerequisite softwares
 4. *run/*: main scripts and execution results.
 5. *data/*: final outputs and reports.
 
