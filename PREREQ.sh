@@ -2,8 +2,8 @@
 source ./0SOURCE
 
 ## Prerequisite data:
-# Run TRegGA workflow to obtain the trimmed and quality filtered NGS reads of rice samples.
-# Retrieve the reference rice Japonica sequence and gff3 files.
+# Sample NGS reads.
+# The reference sequence.
 
 ## Prerequisite software:
 # bwa/0.7.6a
