@@ -6,7 +6,7 @@ source ./0SOURCE
 # Retrieve the reference rice Japonica sequence and gff3 files.
 
 ## Prerequisite software:
-# xgetseq from TRegGA for retrieving the reference sequence, with modification to retrieve also individual chrs.
+# bin/xgetseq from TRegGA for retrieving the reference sequence, with modification to retrieve also individual chrs.
 # bwa/0.7.6a
 # samtools/0.1.19
 # picard/1.52
