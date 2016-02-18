@@ -1,8 +1,8 @@
 ## *src/* directory contains prerequisite softwares:
-- bwa/0.7.6a
-- samtools/0.1.19
-- picard/1.52
-- gatk/3.4-0
+- bwa
+- samtools
+- picard
+- gatk
 
 WGvarSNP is implemented as a collection of shell scripts and ancillary Python codes, so no compilatin is required. However, the workflow depends on several third-party programs, and many of which do require compiling and/or additional configuration for your particular system. Source of the softwares are listed. Please see the cited URLs for details on the software and installation. *src/* is assumed below, but should be replaced with the actual installation path.
 
