@@ -9,7 +9,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 2. All reads are further cleaned by the following to minimize the number of mismatched bases for variant calling: 
   * remove unmapped and duplicate reads in the bwa alignment result
   * realign the raw gapped alignment to reduce the number of miscalls of INDELs.
-3. Variant (SNP and InDel) calling is based on alignment using the UnifiedGenotyper package of Genome Analysis Toolkit (GATK), with the following constrains (phred-scaled scores):
+3. Variant (SNP and INDEL) calling is based on alignment using the UnifiedGenotyper package of Genome Analysis Toolkit (GATK), with the following constrains (phred-scaled scores):
   * minimum confidence threshold for calling variant at 50, 
   * minimum confidence threshold for emitting variants at 10, 
   * minimam base quality at 20,
