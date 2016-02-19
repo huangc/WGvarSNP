@@ -6,7 +6,7 @@
 
 WGvarSNP is implemented as a collection of shell scripts and ancillary Python codes, so no compilation is required. However, the workflow depends on several third-party programs, and many of which do require compiling and/or additional configuration for your particular system. Please see the cited URLs below for details on the software installation. *src/* is assumed for the installation path, but should be replaced with the actual path.
 
-In the case on the IU Mason cluster, the prerequisite softwares can be loaded from the system:
+For IU Mason cluster users, the prerequisite softwares can be loaded from the system:
 - module add bwa/0.7.6a
 - module add samtools/0.1.19
 - module add picard/1.52
