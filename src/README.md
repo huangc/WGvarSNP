@@ -17,6 +17,7 @@ See http://bio-bwa.sourceforge.net.
 Last update: December 3, 2015.
 ```bash
 cd ${src_DIR}
+mkdir bwa cd bwa
 wget https://github.com/lh3/bwa/archive/0.7.12.tar.gz
 tar -xzf 0.7.12.tar.gz
 cd bwa-0.7.12/
@@ -28,6 +29,8 @@ See http://www.htslib.org.
 Last update: December 3, 2015.
 ```bash
 cd ${src_DIR}
+mkdir samtools
+cd samtools
 wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
 tar -xjf samtools-1.2.tar.bz2
 cd samtools-1.2/
@@ -38,13 +41,11 @@ make
 See https://github.com/broadinstitute/picard for the source code and installation instruction.
 ```bash
 cd ${src_DIR}
-# Clone the repo:
-git clone https://github.com/broadinstitute/picard.git
-cd picard/
-# Clone htsjdk into a subdirectory:
-ant clone-htsjdk
-# Build:
-ant
+mkdir picard
+cd picard
+wget https://github.com/broadinstitute/picard/releases/download/2.1.0/picard-tools-2.1.0.zip
+unzip picard-tools-2.1.0.zip
+
 ```
 
 ### GATK
@@ -52,7 +53,9 @@ ant
 * See https://www.broadinstitute.org/gatk/download/index for the pre-compiled GATK download instruction
 ```bash
 cd ${src_DIR}
-# download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
+mkdir gatk
+cd gatk
+# Register, then download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
 tar -jxf GenomeAnalysisTK-3.5.tar.bz2
 chmod u+x GenomeAnalysisTK.jar
 ```
