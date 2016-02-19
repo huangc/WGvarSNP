@@ -36,16 +36,16 @@ data_DIR=${WORK_DIR}/data
 run_DIR=${WORK_DIR}/run
 scratch_DIR=${WORK_DIR}/scratch
 
-<<<<<<< HEAD
 ## For IU Mason users, the prerequisite softwares can be accessed from system by `module add`.
-# Alternatively, uncomment and add directories of the local installed softwares to the PATH.
-# export PATH=$PATH:${src_DIR}/bwa/bwa-0.7.12
-# export PATH=$PATH:${src_DIR}/samtools/samtools-1.2
-# export PATH=$PATH:${src_DIR}/picard/picard-tools-2.1.0
-# export PATH=$PATH:${src_DIR}/gatk
-=======
-## find out the path to picard-tools and gatk with "module show" on Mason
+# find out the path to picard-tools and gatk with "module show" on Mason
 PICARD_DIR=/N/soft/mason/picard-tools-1.52
 GATK_DIR=/N/soft/rhel6/gatk/3.4-0
 SAMTOOLS_DIR=/N/soft/mason/samtools/0.1.19
->>>>>>> parent of 0c62b5e... Update 0SOURCE
+
+# Alternatively, configure to use the local installation according to src/
+# export PATH=$PATH:{src_DIR}/bwa/bwa-0.7.12
+# SAMTOOLS_DIR=${src_DIR}/samtools/samtools-1.2
+# PICARD_DIR=${src_DIR}/picard/picard-tools-2.1.0
+# GATK_DIR=${src_DIR}/gatk
+
+
