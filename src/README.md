@@ -43,7 +43,7 @@ See https://github.com/broadinstitute/picard for the source code and installatio
 * See https://www.broadinstitute.org/gatk/download/index for the pre-compiled GATK download instruction
 ```bash
 cd ${src_DIR}
-# download GenomeAnalysisTK-3.5.tar.bz2
+# download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
 tar -jxf GenomeAnalysisTK-3.5.tar.bz2
-cp GenomeAnalysisTK.jar ${bin_DIR}
+chmod u+x GenomeAnalysisTK.jar
 ```
