@@ -37,7 +37,7 @@ run_DIR=${WORK_DIR}/run
 scratch_DIR=${WORK_DIR}/scratch
 
 ## For IU Mason users, the prerequisite softwares can be accessed from system by `module add`.
-## Alternatively, directories to the local installed softwares needs to be added to the PATH.
+# Alternatively, uncomment and add directories of the local installed softwares to the PATH.
 # export PATH=$PATH:${src_DIR}/bwa/bwa-0.7.12
 # export PATH=$PATH:${src_DIR}/samtools/samtools-1.2
 # export PATH=$PATH:${src_DIR}/picard/picard-tools-2.1.0
