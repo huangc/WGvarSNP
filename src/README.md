@@ -13,8 +13,8 @@ In the case on the IU Mason cluster, the prerequisite softwares can be loaded fr
 - module add gatk/3.4-0
 
 ### BWA
-See http://bio-bwa.sourceforge.net.
-Last update: December 3, 2015.
+* See http://bio-bwa.sourceforge.net
+* Last update: Dec. 2015.
 ```bash
 cd ${src_DIR}
 mkdir bwa 
@@ -27,8 +27,8 @@ export PATH=$PATH:${src_DIR}/bwa/bwa-0.7.12
 ```
 
 ### Samtools
-See http://www.htslib.org.
-Last update: December 3, 2015.
+* See http://www.htslib.org
+* Last update: Dec. 2015.
 ```bash
 cd ${src_DIR}
 mkdir samtools
@@ -41,7 +41,8 @@ export PATH=$PATH:${src_DIR}/samtools/samtools-1.2
 ```
 
 ### Picard
-See https://github.com/broadinstitute/picard for the source code and installation instruction.
+* See https://github.com/broadinstitute/picard
+* Last update: Feb. 2016
 ```bash
 cd ${src_DIR}
 mkdir picard
@@ -52,13 +53,14 @@ export PATH=$PATH:${src_DIR}/picard/picard-tools-2.1.0
 ```
 
 ### GATK
-* See https://github.com/broadinstitute/gatk for the source code and installation instruction.
-* See https://www.broadinstitute.org/gatk/download/index for the pre-compiled GATK download instruction
+* See https://github.com/broadinstitute/gatk
+* Last update: Nov. 2015
 ```bash
 cd ${src_DIR}
 mkdir gatk
 cd gatk
-# Register, then download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
+# Register at https://www.broadinstitute.org/gatk/download, 
+# then download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
 tar -jxf GenomeAnalysisTK-3.5.tar.bz2
 chmod u+x GenomeAnalysisTK.jar
 export PATH=$PATH:${src_DIR}/gatk
