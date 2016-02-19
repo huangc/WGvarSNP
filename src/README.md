@@ -39,7 +39,7 @@ make prefix=${src_DIR} install
 See https://github.com/broadinstitute/picard for the source code and installation instruction.
 ```bash
 cd ${src_DIR}
-# To clone and build: Clone the repo:
+# Clone the repo:
 git clone https://github.com/broadinstitute/picard.git
 cd picard/
 # Clone htsjdk into a subdirectory:
