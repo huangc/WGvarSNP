@@ -49,6 +49,9 @@ mkdir picard
 cd picard
 wget https://github.com/broadinstitute/picard/releases/download/2.1.0/picard-tools-2.1.0.zip
 unzip picard-tools-2.1.0.zip
+chmod u+x picard.jar
+chmod u+x picard-lib.jar
+chmod u+x htsjdk-2.1.0.jar
 export PATH=$PATH:${src_DIR}/picard/picard-tools-2.1.0
 ```
 
