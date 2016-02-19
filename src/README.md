@@ -21,7 +21,6 @@ wget https://github.com/lh3/bwa/archive/0.7.12.tar.gz
 tar -xzf 0.7.12.tar.gz
 cd bwa-0.7.12/
 make
-cp bwa ${bin_DIR}
 ```
 
 ### Samtools
@@ -32,8 +31,8 @@ cd ${src_DIR}
 wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar.bz2
 tar -xjf samtools-1.2.tar.bz2
 cd samtools-1.2/
-make prefix=${bin_DIR}
-make prefix=${bin_DIR} install
+make prefix=${src_DIR}
+make prefix=${src_DIR} install
 ```
 
 ### Picard
@@ -42,7 +41,9 @@ See https://github.com/broadinstitute/picard for the source code and installatio
 ### GATK
 * See https://github.com/broadinstitute/gatk for the source code and installation instruction.
 * See https://www.broadinstitute.org/gatk/download/index for the pre-compiled GATK download instruction
-```
+```bash
+cd ${src_DIR}
+# download GenomeAnalysisTK-3.5.tar.bz2
 tar -jxf GenomeAnalysisTK-3.5.tar.bz2
 cp GenomeAnalysisTK.jar ${bin_DIR}
 ```
