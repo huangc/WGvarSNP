@@ -17,11 +17,13 @@ See http://bio-bwa.sourceforge.net.
 Last update: December 3, 2015.
 ```bash
 cd ${src_DIR}
-mkdir bwa cd bwa
+mkdir bwa 
+cd bwa
 wget https://github.com/lh3/bwa/archive/0.7.12.tar.gz
 tar -xzf 0.7.12.tar.gz
 cd bwa-0.7.12/
 make
+export PATH=$PATH:${src_DIR}/bwa/bwa-0.7.12
 ```
 
 ### Samtools
@@ -35,6 +37,7 @@ wget https://github.com/samtools/samtools/releases/download/1.2/samtools-1.2.tar
 tar -xjf samtools-1.2.tar.bz2
 cd samtools-1.2/
 make
+export PATH=$PATH:${src_DIR}/samtools/samtools-1.2
 ```
 
 ### Picard
@@ -45,7 +48,7 @@ mkdir picard
 cd picard
 wget https://github.com/broadinstitute/picard/releases/download/2.1.0/picard-tools-2.1.0.zip
 unzip picard-tools-2.1.0.zip
-
+export PATH=$PATH:${src_DIR}/picard/picard-tools-2.1.0
 ```
 
 ### GATK
@@ -58,4 +61,5 @@ cd gatk
 # Register, then download the pre-compiled GenomeAnalysisTK-3.5.tar.bz2
 tar -jxf GenomeAnalysisTK-3.5.tar.bz2
 chmod u+x GenomeAnalysisTK.jar
+export PATH=$PATH:${src_DIR}/gatk
 ```
