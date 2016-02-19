@@ -42,7 +42,7 @@ PICARD_DIR=/N/soft/mason/picard-tools-1.52
 GATK_DIR=/N/soft/rhel6/gatk/3.4-0
 SAMTOOLS_DIR=/N/soft/mason/samtools/0.1.19
 
-# Alternatively, configure to use the local installation according to src/
+## Alternatively, configure to use the prerequisite softwares from local installation according to src/
 # export PATH=$PATH:{src_DIR}/bwa/bwa-0.7.12
 # SAMTOOLS_DIR=${src_DIR}/samtools/samtools-1.2
 # PICARD_DIR=${src_DIR}/picard/picard-tools-2.1.0
