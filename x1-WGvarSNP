@@ -27,26 +27,26 @@ cd ${run_DIR}
 bwa mem -M -t 8 \
 ${prereq_DIR}/${REFSEQ} ${prereq_DIR}/${i}_1.fq ${prereq_DIR}/${i}_2.fq > ${i}.sam
 
-#2. Sort SAM file and output as BAM file
-java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/SortSam.jar \
+#2. Sort SAM file with Picard SortSam and output as BAM file
+java -Xmx${JAVA_XMX} -jar SortSam.jar \
 INPUT=${i}.sam \
 OUTPUT=${i}.sorted.bam \
 SORT_ORDER=coordinate \
 VALIDATION_STRINGENCY=LENIENT \
 CREATE_INDEX=TRUE
 
-#3. Fix mate using samtools fixmate, followed with sorting and indexing
+#3. Fix mate with samtools fixmate, followed with sorting and indexing by Picard SortSam
 # Fix mate with Picard/FixMateInformation.jar is causing errors for downstream steps, so use fixmate from samtools instead.
-${SAMTOOLS_DIR}/samtools fixmate ${i}.sorted.bam ${i}.fxmt.bam
-java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/SortSam.jar \
+samtools fixmate ${i}.sorted.bam ${i}.fxmt.bam
+java -Xmx${JAVA_XMX} -jar SortSam.jar \
 INPUT=${i}.fxmt.bam \
 OUTPUT=${i}.fxmt.sorted.bam \
 SORT_ORDER=coordinate \
 VALIDATION_STRINGENCY=LENIENT \
 CREATE_INDEX=TRUE
 
-#4. Mark duplicate reads
-java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/MarkDuplicates.jar \
+#4. Mark duplicate reads with Picard MarkDuplicates
+java -Xmx${JAVA_XMX} -jar MarkDuplicates.jar \
 INPUT=${i}.fxmt.sorted.bam \
 OUTPUT=${i}.mkdup.bam \
 METRICS_FILE=${i}.metrics \
@@ -54,8 +54,8 @@ VALIDATION_STRINGENCY=LENIENT \
 CREATE_INDEX=TRUE \
 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000
 
-#5. Add or replace read groups
-java -Xmx${JAVA_XMX} -jar ${PICARD_DIR}/AddOrReplaceReadGroups.jar \
+#5. Add or replace read groups with Picard AddOrReplaceReadGroups
+java -Xmx${JAVA_XMX} -jar AddOrReplaceReadGroups.jar \
 INPUT=${i}.mkdup.bam \
 OUTPUT=${i}.addrep.bam \
 RGID=${i} \
@@ -68,8 +68,8 @@ SORT_ORDER=coordinate \
 VALIDATION_STRINGENCY=LENIENT \
 CREATE_INDEX=TRUE
 
-#6. Realign Target using GenomeAnalysisTK (GATK)
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+#6. Realign Target using GenomeAnalysisTK (GATK) RealignerTargetCreator
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T RealignerTargetCreator \
 -I ${i}.addrep.bam \
 -R ${prereq_DIR}/${REFSEQ} \
@@ -77,8 +77,8 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -nt 8
 # Note: turn on option "-fixMisencodedQuals" when encounter error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores".
 
-#7. Indel Realigner
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+#7. Indel Realigner using GATK IndelRealigner
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T IndelRealigner \
 -I ${i}.addrep.bam \
 -R ${prereq_DIR}/${REFSEQ} \
@@ -86,12 +86,12 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 -o ${i}.realn.bam
 # Note: turn on option "-fixMisencodedQuals" when encounter error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores".
 
-#8. Merge individual BAM files if there are multiple read pairs per sample
-# ${SAMTOOLS_DIR}/samtools merge ${i}.merged.bam ${i}.*.realn.bam
+#8. Merge individual BAM files if there are multiple read pairs per sample with samtools merge
+# samtools merge ${i}.merged.bam ${i}.*.realn.bam
 # \cp ${i}.merged.bam ${i}.realn.bam
 
-#9. Call variants using Unified Genotyper
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+#9. Call variants using GATK UnifiedGenotyper
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T UnifiedGenotyper \
 -R ${prereq_DIR}/${REFSEQ} \
 -I ${i}.realn.bam \
@@ -105,8 +105,8 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 --standard_min_confidence_threshold_for_calling 50 \
 --min_indel_count_for_genotyping 2
 
-#10. Select Variants by SNPS and Indels using SelectVariants
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+#10. Select Variants by SNPS and Indels using GATK SelectVariants
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T SelectVariants \
 -R ${prereq_DIR}/${REFSEQ} \
 --variant ${i}.vcf \
@@ -114,14 +114,14 @@ java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
 --excludeNonVariants \
 -o ${i}_env.vcf
 
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T SelectVariants \
 -R ${prereq_DIR}/${REFSEQ} \
 --selectTypeToInclude SNP \
 --variant ${i}_env.vcf \
 -o ${i}_env_snp.vcf
 
-java -Xmx${JAVA_XMX} -jar ${GATK_DIR}/GenomeAnalysisTK.jar \
+java -Xmx${JAVA_XMX} -jar GenomeAnalysisTK.jar \
 -T SelectVariants \
 -R ${prereq_DIR}/${REFSEQ} \
 --selectTypeToInclude INDEL \
