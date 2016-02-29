@@ -35,6 +35,7 @@ makeblastdb -in Oryza_sativa.IRGSP-1.0.26.dna.genome.fa -dbtype nucl -parse_seqi
 #5. Extract the chromosome sequences into file OsjCHR.fa:
 #
 blastdbcmd -db OsjDNA -entry OsjChr1,OsjChr2,OsjChr3,OsjChr4,OsjChr5,OsjChr6,OsjChr7,OsjChr8,OsjChr9,OsjChr10,OsjChr11,OsjChr12 | sed "s/^>lcl|/>/;" > OsjCHR.fa
+makeblastdb -in OsjCHR.fa -dbtype nucl -parse_seqids -out OsjCHR
 
 for i in {1..12}
 do
