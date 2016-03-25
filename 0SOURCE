@@ -1,6 +1,6 @@
 ## General
 EMAIL=youremail@indiana.edu
-WORK_DIR=/your_home/your_workdir
+WORK_DIR=`pwd`
 
 # REFSEQ is the fasta file for reference genome, retrieved by bin/xgetseq, and located in prereq/. 
 # REFSEQ=OsjCHR.fa
