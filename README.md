@@ -18,7 +18,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 ## Workflow execution:
 1. Edit and setup the parameters as described in 0SOURCE, then `source 0SOURCE`
 2. Edit and prepare for the prerequisite files and softwares as described in PREREQ.sh, then `sh PREREQ.sh`
-3. Generate qsub script to be run on Mason (but read Note#4 first): `sh x1-WGvarSNP` or `sh x1-WGvarSNP-Seek`
+3. Generate qsub script to be run on Mason: `sh x1-WGvarSNP`
 4. Submit jobs on Mason: `sh x2-qsub`. 
 5. Cleanup files with `sh xcleanup`
 6. Find final outputs in *data/*.
@@ -35,7 +35,7 @@ This workflow is to to find whole genome (WG) SNPs and short INDELs of genomic s
 1. The workflow default to run a test case using 10% reads from rice cultivar Zhengshan97 against reference rice Japponica Chr10. 
 2. PREREQ.sh submits a job to retrieve and index the reference genome. Make sure the job is done before proceeding to the next step.
 3. If x2-qsub encounter an error message of "SAM/BAM/CRAM file xxxxx appears to be using the wrong encoding for quality scores", you need to turn on option "-fixMisencodedQuals" in step #6 Realign Target and step #7 Indel Realigner of the qsub script located in run/. Turning on this option universally, however, might incur the risk of having another error "Bad input: while fixing mis-encoded base qualities we encountered a read that was correctly encoded".
-4. WGvarSNP implements the variant calling options according to the 3kRGP [1]. The SNP-Seek's pipeline [2,4], although followed 3kRGP instruction, did not include the constrains on minimum confidence threshold for calling and emitting variant, or on minimum supporting read counts. Run the adjusted version *x1-WGvarSNP-Seek* with those options removed accordingly to be compatible with the SNP-Seek database.
+4. WGvarSNP implements the variant calling options according to the SNP-Seek's pipeline [2,4], which is similar to 3kRGP instruction [1], except the constrains on minimum confidence threshold for calling and emitting variant, and on minimum supporting read counts.
 
 ## Reference:
 1. The 3,000 rice genomes project. Gigascience. 2014 May 28;3:7.
